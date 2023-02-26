@@ -1,0 +1,10 @@
+.nav__list {
+    display: flex;
+}
+
+.vertical__line {
+    display: block;
+    width: 0.5px;
+    height: 35px;
+    background-color: #fff; 
+}

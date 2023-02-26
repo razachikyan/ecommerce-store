@@ -1,0 +1,11 @@
+.section__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.section {
+    background-color: var(--light__brown);
+    padding: 5px 15px;
+    transition: all .2s;
+}

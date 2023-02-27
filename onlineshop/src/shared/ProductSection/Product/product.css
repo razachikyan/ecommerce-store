@@ -1,12 +1,11 @@
 .product {
-    position: relative;
+    display: flex;
     width: 260px;
     background-repeat: no-repeat;
     background-size: 180px 200px;
     background-position: center 20px;
-    padding: 240px 25px 25px;
+    padding: 240px 0 0;
     background-color: #fff;
-    min-height: 400px;
     border-radius: 20px;
 }
 
@@ -16,15 +15,16 @@
 }
 
 .product__text {
-    position: absolute;
-    top: 240px;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    width: 100%;
     background-color: var(--dark__brown);
     border-radius: 0 0 20px 20px;
     color: #fff;
-    padding: 20px
+    padding: 20px;
+    min-height: 134px;
+}
+
+.product__text:hover {
+    background-color: var(--brown);
 }
 
 .product__title {
@@ -41,6 +41,7 @@
 }
 
 .descr__btn {
+    max-height: 27px;
     padding: 3px 15px;
     font-weight: 700;
     border-radius: 10px;

@@ -1,9 +1,9 @@
 import { Reducer } from "react";
 import { setdescripedAction, SET_DESCRIPED } from "../product/actions";
 import { productReducer } from "../product/reducer";
-import { IProductsState, setProductsAction, SET_PRODUCTS } from "./actions";
+import { IProductsState, setLoadingAction, setProductsAction, SET_LOADING, SET_PRODUCTS } from "./actions";
 
-type productsAction = setProductsAction | setdescripedAction;
+export type productsAction = setProductsAction | setdescripedAction | setLoadingAction;
 
 export const productsReducer: Reducer<IProductsState, productsAction> = (state, action) => {
     switch (action.type) {
@@ -19,6 +19,11 @@ export const productsReducer: Reducer<IProductsState, productsAction> = (state, 
                     if (product.id === action.id) return productReducer(product, action);
                     return product
                 })
+            }
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: action.loading
             }
         default:
             return state;

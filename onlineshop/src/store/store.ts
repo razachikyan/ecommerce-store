@@ -6,8 +6,8 @@ import { SET_OPEN_SEARCH } from "./header/search/actions";
 import { MainState } from "./main/actions";
 import { SET_DESCRIPED } from "./product/actions";
 import { productAction } from "./product/reducer";
-import { IProductsState, setProductsAction, SET_PRODUCTS } from "./products/actions";
-import { productsReducer } from "./products/reducer";
+import { IProductsState, SET_LOADING, SET_PRODUCTS } from "./products/actions";
+import { productsAction, productsReducer } from "./products/reducer";
 
 export type RootState = {
     products: IProductsState,
@@ -18,6 +18,7 @@ export type RootState = {
 const initialState: RootState = {
     products: {
         products: [],
+        loading: false
     },
     header: {
         categories: {
@@ -33,7 +34,7 @@ const initialState: RootState = {
 }
 
 type Actions =
-    setProductsAction |
+    productsAction |
     headerAction |
     productAction;
 
@@ -41,6 +42,7 @@ export const rootReducer: Reducer<RootState, Actions> = (state = initialState, a
     switch (action.type) {
         case SET_PRODUCTS:
         case SET_DESCRIPED:
+        case SET_LOADING:
             return {
                 ...state,
                 products: productsReducer(state.products, action)
